@@ -5,21 +5,22 @@ import {
   Inter_700Bold,
   useFonts,
 } from '@expo-google-fonts/inter';
-import { Slot } from 'expo-router';
+import { Redirect, Slot, usePathname } from 'expo-router';
 import { HeroUINativeProvider } from 'heroui-native';
 import { useCallback } from 'react';
-import { StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import {
   KeyboardAvoidingView,
   KeyboardProvider,
 } from 'react-native-keyboard-controller';
+import { useMMKVBoolean } from 'react-native-mmkv';
 import {
   configureReanimatedLogger,
   ReanimatedLogLevel,
 } from 'react-native-reanimated';
 import '../../global.css';
 import { AppThemeProvider } from '../contexts/app-theme-context';
+import { storage, StorageKeys } from '../helpers/utils/storage';
 
 configureReanimatedLogger({
   level: ReanimatedLogLevel.warn,
@@ -45,6 +46,11 @@ function AppContent() {
     []
   );
 
+  const [onboardingDone] = useMMKVBoolean(StorageKeys.ONBOARDING_DONE, storage);
+  const pathname = usePathname();
+
+  const shouldRedirectToOnboarding = !onboardingDone && !pathname.startsWith('/onboarding');
+
   return (
     <AppThemeProvider>
       <HeroUINativeProvider
@@ -54,7 +60,7 @@ function AppContent() {
           },
         }}
       >
-        <Slot />
+        {shouldRedirectToOnboarding ? <Redirect href="/onboarding" /> : <Slot />}
       </HeroUINativeProvider>
     </AppThemeProvider>
   );
@@ -73,16 +79,10 @@ export default function Layout() {
   }
 
   return (
-    <GestureHandlerRootView style={styles.root}>
+    <GestureHandlerRootView className="flex-1">
       <KeyboardProvider>
         <AppContent />
       </KeyboardProvider>
     </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-});

@@ -1,7 +1,8 @@
 import Feather from '@expo/vector-icons/Feather';
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Card, Chip, cn } from 'heroui-native';
+import { Button, Card, Chip, cn } from 'heroui-native';
+import { storage, StorageKeys } from '../../helpers/utils/storage';
 import type { FC } from 'react';
 import { Image, Pressable, View } from 'react-native';
 import Animated, {
@@ -153,6 +154,16 @@ const HomeCard: FC<HomeCardProps & { index: number }> = ({
 
 export default function App() {
   const { isDark } = useAppTheme();
+  const router = useRouter();
+
+  const handleResetOnboarding = () => {
+    storage.remove(StorageKeys.ONBOARDING_DONE);
+    storage.remove(StorageKeys.USER_GENDER);
+    storage.remove(StorageKeys.USER_AGE);
+    storage.remove(StorageKeys.USER_TEXT_STYLE);
+    storage.remove(StorageKeys.USER_TONE);
+    router.replace('/onboarding');
+  };
 
   return (
     <ScreenScrollView>
@@ -172,6 +183,11 @@ export default function App() {
             index={index}
           />
         ))}
+      </View>
+      <View className="mt-8 mb-4">
+        <Button variant="ghost" onPress={handleResetOnboarding}>
+          <Button.Label>Reset Onboarding</Button.Label>
+        </Button>
       </View>
       <StatusBar style={isDark ? 'light' : 'dark'} />
     </ScreenScrollView>
