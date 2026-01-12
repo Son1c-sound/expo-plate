@@ -9,7 +9,7 @@ import { useAppTheme } from '../../../contexts/app-theme-context';
 import { withUniwind } from 'uniwind';
 import { Stack } from 'expo-router';
 import { DevTools } from '@/src/components/dev-tools';
-
+import { ScreenScrollView } from '@/src/components/screen-scroll-view';
 
 const StyledIonicons = withUniwind(Ionicons);
 
@@ -33,27 +33,29 @@ const SETTINGS_OPTIONS = [
 ];
 
 export default function SettingsScreen() {
-    const insets = useSafeAreaInsets();
     const { toggleTheme, isDark } = useAppTheme();
 
     return (
         <>
         <Stack.Screen
             options={{
-                headerTitle: '',
+                headerLargeTitleEnabled: true,
+                headerTitle: 'Settings',
+                headerTitleStyle: {
+                    
+                },
+                headerTitleAlign: 'center',
                 headerShadowVisible: false,
                 headerBackButtonDisplayMode: 'default',
+                headerTransparent: true,
                 
             }}
         />
+        <ScreenScrollView  >
         <View
-            className="flex-1 bg-background px-4"
+            className="flex-1 bg-background "
         >
-            
-            <AppText className="text-2xl mb-5 font-bold text-foreground">
-                Preferences
-            </AppText>
-            <View className="gap-3">
+            <View className="mt-2 gap-3">
                 <Card className="p-4 border border-border/50">
                     <View className="flex-row items-center justify-between">
                         <View className="flex-row items-center gap-3">
@@ -115,6 +117,7 @@ export default function SettingsScreen() {
               </View>
                 )}
         </View>
+         </ScreenScrollView>
         </>
     );
 }

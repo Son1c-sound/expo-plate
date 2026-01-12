@@ -4,8 +4,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AppText } from '../../components/app-text';
 
 export default function SetupScreen() {
-    const insets = useSafeAreaInsets();
-
     return (
         <View
             className="flex-1 bg-background px-6"

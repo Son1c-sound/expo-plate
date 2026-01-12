@@ -1,13 +1,11 @@
 import { useHeaderHeight } from '@react-navigation/elements';
 import { cn } from 'heroui-native';
 import { type FC, type PropsWithChildren } from 'react';
-import { ScrollView, type ScrollViewProps } from 'react-native';
-import Animated, { type AnimatedProps } from 'react-native-reanimated';
+import { type ScrollViewProps } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-const AnimatedScrollView = Animated.createAnimatedComponent(ScrollView);
-
-interface Props extends AnimatedProps<ScrollViewProps> {
+interface Props extends ScrollViewProps {
   className?: string;
   contentContainerClassName?: string;
 }
@@ -21,7 +19,9 @@ export const ScreenScrollView: FC<PropsWithChildren<Props>> = ({
   const insets = useSafeAreaInsets();
   const headerHeight = useHeaderHeight();
   return (
-    <AnimatedScrollView
+    <KeyboardAwareScrollView
+      bottomOffset={50}
+      keyboardShouldPersistTaps="handled"
       className={cn('bg-background', className)}
       contentContainerClassName={cn('px-5', contentContainerClassName)}
       contentContainerStyle={{
@@ -32,6 +32,6 @@ export const ScreenScrollView: FC<PropsWithChildren<Props>> = ({
       {...props}
     >
       {children}
-    </AnimatedScrollView>
+    </KeyboardAwareScrollView>
   );
 };

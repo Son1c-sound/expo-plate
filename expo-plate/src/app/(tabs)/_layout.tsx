@@ -51,11 +51,8 @@ export default function Layout() {
           headerStyle: {
             backgroundColor: themeColorBackground,
           },
-          headerTransparent: false,
+          headerTransparent: true,
           headerShadowVisible: false,
-          headerTitleStyle: {
-            fontFamily: 'Inter_600SemiBold',
-          },
           tabBarActiveTintColor: themeColorForeground,
           tabBarStyle: {
             backgroundColor: themeColorBackground,
