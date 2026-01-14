@@ -2,11 +2,8 @@ import React, { createContext, useContext, useEffect, useRef, useState } from 'r
 import { Platform } from 'react-native';
 import Purchases, { CustomerInfo, PurchasesPackage } from 'react-native-purchases';
 import RevenueCatUI from 'react-native-purchases-ui';
+import { REVENUECAT_CONFIG } from '../config/revenuecat';
 
-const API_KEYS = {
-    ios: 'appl_YWQtYLpWMiKBoZjueuBAEXacitx',
-    android: 'your_revenuecat_android_api_key',
-};
 
 const RevenueCatContext = createContext<RevenueCatContextType | undefined>(undefined);
 
@@ -17,21 +14,18 @@ export function RevenueCatProvider({ children }: { children: React.ReactNode }) 
     const listenerRemover = useRef<(() => void) | null>(null);
 
     useEffect(() => {
-        let isMounted = true;
-
         const init = async () => {
             try {
-                const apiKey = Platform.OS === 'ios' ? API_KEYS.ios : API_KEYS.android;
-                
+                const apiKey = Platform.OS === 'ios' ? REVENUECAT_CONFIG.apiKey.ios : REVENUECAT_CONFIG.apiKey.android;
+
                 await Purchases.configure({ apiKey });
 
                 const info = await Purchases.getCustomerInfo();
-                if (isMounted) {
-                    setCustomerInfo(info);
-                }
+                setCustomerInfo(info);
+
                 try {
                     const offerings = await Purchases.getOfferings();
-                    if (isMounted && offerings.current?.availablePackages) {
+                    if (offerings.current?.availablePackages) {
                         setPackages(offerings.current.availablePackages);
                     }
                 } catch (e) {
@@ -39,15 +33,11 @@ export function RevenueCatProvider({ children }: { children: React.ReactNode }) 
                 }
 
                 const removeListener = Purchases.addCustomerInfoUpdateListener((info) => {
-                    if (isMounted) {
-                        setCustomerInfo(info);
-                    }
+                    setCustomerInfo(info);
                 });
                 listenerRemover.current = removeListener as unknown as () => void;
 
-                if (isMounted) {
-                    setIsInitialized(true);
-                }
+                setIsInitialized(true);
             } catch (e) {
                 console.error('Error initializing RevenueCat:', e);
             }
@@ -56,14 +46,13 @@ export function RevenueCatProvider({ children }: { children: React.ReactNode }) 
         init();
 
         return () => {
-            isMounted = false;
             if (listenerRemover.current) {
                 listenerRemover.current();
             }
         };
     }, []);
 
-    const isProUser = customerInfo?.entitlements.active['pro'] !== undefined;
+    const isProUser = customerInfo?.entitlements.active[REVENUECAT_CONFIG.entitlements.pro] !== undefined;
 
     const purchasePackage = async (pkg: PurchasesPackage) => {
         try {

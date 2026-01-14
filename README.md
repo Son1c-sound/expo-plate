@@ -16,11 +16,24 @@ A concise **Expo SDK 54** boilerplate designed to get you shipping fast.
     ```bash
     cd expo-plate
     bun install
+
+    # Prebuild
+    ios:
+    npx expo prebuild --platform ios
+
+    android:
+    npx expo prebuild --platform android
     ```
 
 2. **Run the app**
     ```bash
     npx expo run:ios --device
+    ```
+
+    or
+
+    ```bash
+    npx expo run:android --device
     ```
 
 That's it. Start editing `src/app/` to build your product.

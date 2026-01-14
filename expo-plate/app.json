@@ -10,7 +10,7 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.zura345.heroui-native-example",
+      "bundleIdentifier": "com.rizzapmobile.rizzup",
       "UIDeviceFamily": [
         1
       ]
@@ -24,7 +24,7 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.zura345.herouinativeexample"
+      "package": "com.rizzapmobile.rizzup"
     },
     "web": {
       "output": "static",
