@@ -3,7 +3,7 @@
 Get expo-plate (basic) - if you want no auth and no db, just onboarding, paywall, HeroUI etc.. </br>
 Get explo-convex-clerk - if you want Convex DB synced with Clerk Auth ( same as basic with authentication + db )
 
-A concise **Expo SDK 54** boilerplate designed to get you shipping fast. 
+**Expo SDK 54** boilerplate designed to get you shipping fast. 
 
 ## Features
 
