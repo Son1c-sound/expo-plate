@@ -1,0 +1,99 @@
+@layer theme {
+  :root {
+    @variant mint-light {
+      /* Base Colors - Fresh, energizing mint */
+      --background: var(--white);
+      --foreground: oklch(0.22 0.05 170);
+
+      /* Surface: Used for non-overlay components (cards, accordions, disclosure groups) */
+      --surface: oklch(0.98 0.01 170);
+      --surface-foreground: oklch(0.28 0.055 170);
+
+      /* Overlay: Used for floating/overlay components (dialogs, popovers, modals, menus) */
+      --overlay: oklch(0.998 0.003 170);
+      --overlay-foreground: oklch(0.28 0.055 170);
+
+      --muted: oklch(0.52 0.04 170);
+
+      --default: oklch(0.94 0.02 170);
+      --default-foreground: oklch(0.38 0.06 170);
+
+      /* Accent: Vibrant teal-mint with modern energy */
+      --accent: oklch(0.7 0.16 175);
+      --accent-foreground: oklch(0.98 0.005 175);
+
+      /* Form Field Defaults - Colors */
+      --field-background: oklch(0.98 0.01 170);
+      --field-foreground: oklch(0.22 0.05 170);
+      --field-placeholder: var(--muted);
+      --field-border: transparent;
+
+      /* Status Colors - Natural, organic palette */
+      --success: oklch(0.75 0.15 155);
+      --success-foreground: oklch(0.22 0.08 155);
+
+      --warning: oklch(0.8 0.13 95);
+      --warning-foreground: oklch(0.28 0.08 95);
+
+      --danger: oklch(0.66 0.19 25);
+      --danger-foreground: oklch(0.98 0.005 25);
+
+      /* Component Colors */
+      --segment: oklch(0.98 0.01 170);
+      --segment-foreground: oklch(0.22 0.05 170);
+
+      /* Misc Colors */
+      --border: oklch(0 0 0 / 0%);
+      --divider: oklch(0.92 0.016 170);
+      --link: oklch(0.62 0.15 175);
+    }
+
+    @variant mint-dark {
+      /* Base Colors - Deep forest mint */
+      --background: oklch(0.14 0.045 170);
+      --foreground: oklch(0.95 0.01 170);
+
+      /* Surface: Used for non-overlay components (cards, accordions, disclosure groups) */
+      --surface: oklch(0.19 0.05 170);
+      --surface-foreground: oklch(0.91 0.015 170);
+
+      /* Overlay: Used for floating/overlay components (dialogs, popovers, modals, menus) */
+      --overlay: oklch(0.22 0.048 170);
+      --overlay-foreground: oklch(0.91 0.015 170);
+
+      --muted: oklch(0.48 0.045 170);
+
+      --default: oklch(0.24 0.052 170);
+      --default-foreground: oklch(0.89 0.018 170);
+
+      /* Accent: Glowing emerald-teal */
+      --accent: oklch(0.68 0.18 175);
+      --accent-foreground: oklch(0.12 0.045 175);
+
+      /* Form Field Defaults - Colors */
+      --field-background: var(--default);
+      --field-foreground: var(--foreground);
+      --field-placeholder: var(--muted);
+      --field-border: transparent;
+
+      /* Status Colors - Luminous dark mode palette */
+      --success: oklch(0.7 0.17 158);
+      --success-foreground: oklch(0.96 0.008 158);
+
+      --warning: oklch(0.76 0.15 98);
+      --warning-foreground: oklch(0.18 0.04 98);
+
+      --danger: oklch(0.64 0.2 28);
+      --danger-foreground: oklch(0.96 0.008 28);
+
+      /* Component Colors */
+      --segment: oklch(0.21 0.049 170);
+      --segment-foreground: oklch(0.91 0.015 170);
+
+      /* Misc Colors */
+      --border: oklch(0 0 0 / 0%);
+      --divider: oklch(0.26 0.048 170);
+      --link: oklch(0.72 0.16 175);
+    }
+  }
+}
