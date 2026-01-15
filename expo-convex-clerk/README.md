@@ -11,13 +11,10 @@ A production-ready **Expo SDK 54** boilerplate with **Clerk** authentication and
 - 🎬 **Onboarding Flow**: Ready-to-use user onboarding screens
 - 💲 **Payments**: Integrated RevenueCat for subscriptions/IAP
 
-## Demo 📱
+## same as basic Demo but with AUth + DB 📱
 
-<p align="center">
-  <a href="https://player.cloudinary.com/embed/?cloud_name=dzvttwdye&public_id=1a683b93-1dae-4659-b526-faf53424fd11_itmlmu">
-    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2JybTgxbzUwNW9mMnBnbmkxNnJsdTJsNWV4YXI5b3U4a20xanQwNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9oR33y6nOn5chlEqw3/giphy.gif" alt="Demo GIF" />
-  </a>
-</p>
+![download](https://github.com/user-attachments/assets/c5638c30-1b72-4b17-887a-1a73faa5003d)
+
 
 ---
 
