@@ -1,7 +1,12 @@
 # Expo Plate 🍽️
 
-Get expo-plate (basic) - if you want no auth and no db, just onboarding, paywall, HeroUI etc.. </br>
-Get explo-convex-clerk - if you want Convex DB synced with Clerk Auth ( same as basic with authentication + db )
+# Start with one command or clone repos 
+
+- npx create-expo-plate my app
+
+- choose template:
+- Expo (base) - onboarding, paywall, heroUI, uniwind
+- Expo + convex + clerk auth - everything above + auth, DB, backend.
 
 **Expo SDK 54** boilerplate designed to get you shipping fast. 
 
