@@ -10,6 +10,9 @@
 
 **Expo SDK 54** boilerplate designed to get you shipping fast. 
 
+⚠️ Note: If you'r app crashes in production, it is because you missing ENV's in eas dashboard
+either hardcode ENV s or load from eas 
+
 ## Features
 
 -   **HeroUI Native**: Beautiful, pre-built components.
