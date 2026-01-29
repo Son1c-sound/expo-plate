@@ -14,7 +14,9 @@
   - Convex setup (backend & database)
   - Clerk authentication
 
-✏️ Note: If you'r app crashes in production, it is because you missing ENV's in eas dashboard
+## ⚠️ Important Notes
+
+✏️ If you'r app crashes in production, it is because you missing ENV's in eas dashboard
 either hardcode ENV s or load from eas
 
 ✏️ Don't forget to change "package": "change.pkg.name", in app.json before pushing initial app version. 
@@ -25,6 +27,7 @@ either hardcode ENV s or load from eas
 -   **Uniwind**: Tailwind CSS for Native (no runtime overhead).
 -   **Onboarding Flow**: Ready-to-use user onboarding screens.
 -   **Payments**: Integrated RevenueCat (`react-native-purchases`) for subscriptions/IAP.
+  
 ## Demo 📱
 
 <p align="center">
